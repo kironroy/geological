@@ -1,4 +1,4 @@
-name: Generate Timestamp
+name: Add Commit Timestamp
 
 on:
   push:
@@ -6,24 +6,18 @@ on:
       - main
 
 jobs:
-  build:
+  add-timestamp:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Check Out Code
+        uses: actions/checkout@v3
 
-      - name: Set Timestamp
-        id: timestamp
-        run: echo "TIMESTAMP=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
-
-      - name: Create timestamp file
-        run: echo "$TIMESTAMP" > timestamp.txt
-
-      - name: Commit timestamp file
+      - name: Get Commit Timestamp
+        id: commit_time
         run: |
-          git config --global user.name 'kironroy'
-          git config --global user.email 'kironroydev@outlook.com'
-          git add timestamp.txt
-          git commit -m "Update timestamp"
-          git push --set-upstream origin main
+        TIMESTAMP=$(git log -1 --format='%cd' --date=format:'%Y-%m-%d %H:%M:%S')
+        echo "timestamp=$TIMESTAMP" >> $GITHUB_OUTPUT
+
+
+      - name: Use Timestamp
+        run: echo "Commit timestamp is ${{ steps.commit_time.outputs.timestamp }}"
