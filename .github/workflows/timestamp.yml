@@ -18,12 +18,12 @@ jobs:
         run: echo "TIMESTAMP=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
 
       - name: Create timestamp file
-        run: echo "$TIMESTAMP" > timestamp.txt
+        run: echo "$TIMESTAMP" > timestamp.js
 
       - name: Commit timestamp file
         run: |
           git config --global user.name 'kironroy'
           git config --global user.email 'kironroydev@outlook.com'
-          git add timestamp.txt
+          git add timestamp.js
           git commit -m "Update timestamp"
           git push --set-upstream origin main
