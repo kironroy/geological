@@ -1,7 +1,7 @@
 async function fetchTimestamp() {
   try {
     const response = await fetch(
-      'https://raw.githubusercontent.com/your-username/your-repo/main/timestamp.txt'
+      'https://raw.githubusercontent.com/kironroy/geological/main/timestamp.txt'
     );
     const timestamp = await response.text();
     document.getElementById(
