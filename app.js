@@ -1,9 +1,11 @@
+import { GITHUB_TOKEN } from './config.js';
+
 async function fetchCommitDate() {
   const response = await fetch(
     'https://api.github.com/repos/kironroy/geological/commits',
     {
       headers: {
-        Authorization: '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',
+        Authorization: `token ${GITHUB_TOKEN}`,
       },
     }
   );
