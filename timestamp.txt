@@ -1,0 +1,11 @@
+from datetime import datetime
+
+# Get the current date and time
+now = datetime.now()
+
+# Format the date and time
+timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
+
+# Write the timestamp to the file
+with open('/c:/Users/kiron/GitHub_Local/geological/timestamp.txt', 'w') as file:
+    file.write(timestamp)
