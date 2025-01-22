@@ -45,7 +45,7 @@ ol li {
   margin-bottom: 10px;
 }
 
-.timestamp {
+#commit-date {
   margin-top: 20px;
   font-size: 1.2em;
   color: #222;
