@@ -18,7 +18,7 @@ jobs:
         run: echo "TIMESTAMP=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
 
       - name: Create timestamp file
-        run: echo "$TIMESTAMP" > date.js
+        run: echo "$TIMESTAMP" > timestamp.txt
 
       - name: Commit timestamp file
         run: |
